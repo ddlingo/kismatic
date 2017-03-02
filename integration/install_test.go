@@ -124,6 +124,9 @@ var _ = Describe("kismatic", func() {
 					installOpts := installOptions{allowPackageInstallation: true}
 					err := installKismatic(nodes, installOpts, sshKey)
 					Expect(err).ToNot(HaveOccurred())
+					By("Trying to access the Dashboard")
+					err = canAccessDashboard()
+					Expect(err).ToNot(HaveOccurred())
 				})
 			})
 		})
